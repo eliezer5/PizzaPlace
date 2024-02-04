@@ -1,7 +1,6 @@
 ﻿@page "/"
 @rendermode InteractiveServer
 <!-- MENU-->
-
 @foreach (var pizza in estado.Menu.Pizzas)
 {
     <div class="row">
@@ -65,7 +64,55 @@
     </div>
 
 }
+<!--FIN COMPRAS-->
 
+
+<!--Cliente entry-->
+<h1>Please enter your details below</h1>
+<EditForm Model="@estado.CarritoCompras.Clientes" OnValidSubmit="PlaceOrder">
+    <DataAnnotationsValidator />
+    <ValidationSummary/>
+    <fieldset>
+        <div class="row mb-2">
+            <label class="col-2" for="name">Name:</label>
+            <InputText class="form-control col-6"
+                   @bind-Value="@estado.CarritoCompras.Clientes.Nombre" />
+        </div>
+      
+        <div class="row mb-2">
+            <div class="col-6 offset-2">
+                <ValidationMessage For="@(() => estado.CarritoCompras.Clientes.Nombre)" />
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <label class="col-2" for="street">Street:</label>
+            <InputText class="form-control col-6"
+                       @bind-Value="@estado.CarritoCompras.Clientes.Calle" />
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-6 offset-2">
+                <ValidationMessage For="@(() => estado.CarritoCompras.Clientes.Calle)" />
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <label class="col-2" for="city">City:</label>
+            <InputText class="form-control col-6"
+                       @bind-Value="@estado.CarritoCompras.Clientes.Ciudad" />
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-6 offset-2">
+                <ValidationMessage For="@(() => estado.CarritoCompras.Clientes.Ciudad)" />
+            </div>
+        </div>
+        <button @onclick="PlaceOrder">Checkout</button>
+    </fieldset>
+</EditForm>
+
+@estado.ToJson()
 @code {
     private Estados estado { get; } = new Estados();
     protected override void OnInitialized()
@@ -81,4 +128,9 @@
 
     private void AgregarAlCarrito(Pizzas pizza) => estado.CarritoCompras.Agregar(pizza.Id);
     private void EliminarDelCarrito(int pos) => estado.CarritoCompras.EliminarAt(pos);
+
+    private void PlaceOrder()
+    {
+        Console.WriteLine("Placing order");
+    }
 }
