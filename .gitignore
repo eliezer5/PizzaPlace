@@ -1,0 +1,7 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/PizzaPlaceAP/.vs/PizzaPlaceAP
+/PizzaPlaceAP/bin/Debug/net8.0
+/PizzaPlaceAP/obj
