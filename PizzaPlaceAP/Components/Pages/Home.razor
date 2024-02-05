@@ -68,47 +68,47 @@
 
 
 <!--Cliente entry-->
-<h1>Please enter your details below</h1>
+<h1>Por favor, introduzca sus datos a continuaci&oacute;n</h1>
 <EditForm Model="@estado.CarritoCompras.Clientes" OnValidSubmit="PlaceOrder">
     <DataAnnotationsValidator />
     <ValidationSummary/>
     <fieldset>
         <div class="row mb-2">
-            <label class="col-2" for="name">Name:</label>
+            <label class="col-2" for="name">Nombre:</label>
             <InputText class="form-control col-6"
                    @bind-Value="@estado.CarritoCompras.Clientes.Nombre" />
         </div>
       
         <div class="row mb-2">
-            <div class="col-6 offset-2">
+            <div class="col-6">
                 <ValidationMessage For="@(() => estado.CarritoCompras.Clientes.Nombre)" />
             </div>
         </div>
 
         <div class="row mb-2">
-            <label class="col-2" for="street">Street:</label>
+            <label class="col-2" for="street">Calle:</label>
             <InputText class="form-control col-6"
                        @bind-Value="@estado.CarritoCompras.Clientes.Calle" />
         </div>
 
         <div class="row mb-2">
-            <div class="col-6 offset-2">
+            <div class="col-6">
                 <ValidationMessage For="@(() => estado.CarritoCompras.Clientes.Calle)" />
             </div>
         </div>
 
         <div class="row mb-2">
-            <label class="col-2" for="city">City:</label>
+            <label class="col-2" for="city">Ciudad:</label>
             <InputText class="form-control col-6"
                        @bind-Value="@estado.CarritoCompras.Clientes.Ciudad" />
         </div>
 
         <div class="row mb-2">
-            <div class="col-6 offset-2">
+            <div class="col-6 ">
                 <ValidationMessage For="@(() => estado.CarritoCompras.Clientes.Ciudad)" />
             </div>
         </div>
-        <button @onclick="PlaceOrder">Checkout</button>
+        <button @onclick="PlaceOrder">Verificar</button>
     </fieldset>
 </EditForm>
 
