@@ -28,7 +28,7 @@
 <!--COMPRAS-->
 @if (estado.CarritoCompras.Ordenes.Any())
 {
-    <h1 class="">Your current order</h1>
+    <h1 class="">Su orden actual</h1>
     @foreach (var (pizza, pos) in estado.CarritoCompras.Ordenes.Select(
                 (id, pos) => (estado.Menu.GetPizza(id), pos)))
     {
@@ -44,7 +44,7 @@
             <div class="col">
                 <button class="btn btn-danger"
                         @onclick="@(() => EliminarDelCarrito(pos))">
-                    Remove
+                    Eliminar
                 </button>
             </div>
         </div>
